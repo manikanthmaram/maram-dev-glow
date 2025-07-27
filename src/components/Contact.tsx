@@ -165,16 +165,13 @@ const Contact = () => {
                 <Button 
                   className="bg-accent text-accent-foreground hover:bg-accent/90"
                   onClick={() => {
-                    // Create a simple resume download
-                    const link = document.createElement('a');
-                    link.href = 'data:text/plain;charset=utf-8,Maram Manikanth Resume - Full Stack Developer & AI Learner';
-                    link.download = 'Maram_Manikanth_Resume.pdf';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
+                    // Email request for resume
+                    const subject = encodeURIComponent('Resume Request - Maram Manikanth');
+                    const body = encodeURIComponent('Hi Maram,\n\nI would like to request your resume. Please send it at your earliest convenience.\n\nThank you!');
+                    window.location.href = `mailto:manikanthmaram@gmail.com?subject=${subject}&body=${body}`;
                   }}
                 >
-                  Download Resume
+                  Request Resume
                 </Button>
               </div>
             </div>
